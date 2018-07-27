@@ -1,5 +1,5 @@
 # Displays
-This folder contains vfd.conf files for the Le Potato and  Khadas VIM2 boards. Each file name consists of the board(s) it is intended for, the controller name and the display configuration.  
+This folder contains vfd.conf files for the  Khadas VIM2 boards. Each file name consists of the board(s) it is intended for, the controller name and the display configuration.  
 [How to connect the display](#sbcs)
 ## LCDs
 HD44780 LCD displays are very basic alphanumeric displays.  
@@ -7,14 +7,14 @@ The most commonly available displays are 20x4 and 16x2, meaning they are 20 or 1
 There are other configurations available, such as 20x2 or 16x4, but they are less common.  
 There are 40x4 displays available as well, but those have 2 HD44780 controllers, and are NOT supported.  
 You have to make sure that the display you choose has an I2C (also called IIC sometimes) "backpack module", it will allow to convert the 16 pins on the LCD to the 4 pins on your board.
- 
-**lepotato-kvim2-hd44780-1602-vfd.conf:**  
-lepotato-kvim2 - Intended for Le Potato and Khadas VIM2.  
+
+**kvim2-hd44780-1602-vfd.conf:**  
+kvim2 - Intended for Khadas VIM2.  
 hd44780 - HD44780 controller, alphanumeric LCDs.  
 1602 - the display is 16 characters wide and has 2 lines or 16x2.
 
-**lepotato-kvim2-hd44780-2004-vfd.conf:**  
-lepotato-kvim2 - Intended for Le Potato and Khadas VIM2.  
+**kvim2-hd44780-2004-vfd.conf:**  
+kvim2 - Intended for Khadas VIM2.  
 hd44780 - HD44780 controller, alphanumeric LCDs.  
 2004 - the display is 20 characters wide and has 4 lines or 20x4.
 ## OLEDs
@@ -35,37 +35,27 @@ These OLEDs usually come in two sizes:
 
 They  are most common in 1.3" sizes, though.
 
-**lepotato-kvim2-sh1106-12864-vfd.conf:**  
-lepotato-kvim2 - Intended for Le Potato and Khadas VIM2.  
+**kvim2-sh1106-12864-vfd.conf:**  
+kvim2 - Intended for Khadas VIM2.  
 sh1106 - SH1106 controller, graphic monochrome OLEDs.  
 12864 - Resolution, 128 pixels wide, 64 pixels high. 128x64.
 
-**lepotato-kvim2-ssd1306-12864-vfd.conf:**  
-lepotato-kvim2 - Intended for Le Potato and Khadas VIM2.  
+**kvim2-ssd1306-12864-vfd.conf:**  
+kvim2 - Intended for Khadas VIM2.  
 ssd1306 - SSD1306 controller, graphic monochrome OLEDs.  
 12864 - Resolution, 128 pixels wide, 64 pixels high. 128x64.
 
-**lepotato-kvim2-ssd1306-12832-vfd.conf:**  
-lepotato-kvim2 - Intended for Le Potato and Khadas VIM2.  
+**kvim2-ssd1306-12832-vfd.conf:**  
+kvim2 - Intended for Khadas VIM2.  
 ssd1306 - SSD1306 controller, graphic monochrome OLEDs.  
 12832 - Resolution, 128 pixels wide, 32 pixels high. 128x32.
 
-# Le Potato<a name='sbcs' />
-	Display  Board  
-	VCC      5V                    - Pin #2
-	GND      GND                   - Pin #6
-	SCL      GPIODV_27 - I2C_SCK_B - Pin #28
-	SDA      GPIODV_26 - I2C_SDA_B - Pin #27
-![](https://i0.wp.com/libre.computer/wp-content/uploads/2018/05/mmexport1510488638659.jpg?w=1000&ssl=1)  
-![](https://i0.wp.com/libre.computer/wp-content/uploads/2018/05/Screenshot-from-2018-05-21-11-48-00.png?w=336&ssl=1)
-### [GPIO Headers Reference for AML-S905X-CC](https://libre.computer/2018/05/19/gpio-headers-reference-for-aml-s905x-cc/)
-
-# Khadas VIM2
+# Khadas VIM2<a name='sbcs' />
 	Display  Board
 	VCC      5V                    - Pin #2
 	GND      GND                   - Pin #5
-	SCL      GPIODV_27 - I2C_SCK_B - Pin #25
-	SDA      GPIODV_26 - I2C_SDA_B - Pin #26  
+	SCL      GPIODV_25 - I2C_SCK_A - Pin #22
+	SDA      GPIODV_24 - I2C_SDA_A - Pin #23  
 ## Pinout map(V12)
 	SIGNAL 	      PIN       PIN     SIGNAL
 	5V            1         21      GND
