@@ -64,7 +64,9 @@ Here are the values, they are all 0 indexed.
 1. Reserved - must be 0.
 1. Flags:
 	1. Bit 0 - When this bit is '1', the driver will address the display as a common anode unit. When this bit is configured incorrectly, the display will usually show garbage.
-	1. Bits [1 - 7] - Reserved, should be 0.
+	1. Bits [1 - 5] - Reserved, should be 0.
+	1. Bit [6] - When this bit is '1', the driver will use a slower frequency to communicate with the display controller.
+	1. Bit [7] - Reserved, should be 0.
 1. Controller:
 	1. FD628 and compatible controllers.
 	1. FD620.
