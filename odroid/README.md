@@ -57,4 +57,4 @@ ssd1306 - SSD1306 controller, graphic monochrome OLEDs.
 	SCL      GPIODV_27 - I2CB_SCL - Pin #28
 	SDA      GPIODV_26 - I2CB_SDA - Pin #27
 ![](https://wiki.odroid.com/_media/odroid-c2/hardware/c2_j2.png)
-### [Odroid-C2 Expansion Connectors](https://libre.computer/2018/05/19/gpio-headers-reference-for-aml-s905x-cc/)
+### [Odroid-C2 Expansion Connectors](https://wiki.odroid.com/odroid-c2/hardware/expansion_connectors/)
