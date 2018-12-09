@@ -1,6 +1,6 @@
 # This file must be renamed to vfd.conf and placed in the /storage/.config/ folder.
 #
-# X92 S912 configuration
+# Zoomtak Upro S912 configuration
 #--------------------
 #gpio_xxx:
 # [0] 0 = &gpio, 1 = &gpio_ao.
