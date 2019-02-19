@@ -59,22 +59,43 @@ Here's the configuration used in the A95X R2 box:
 This entry tells the driver which type of display your device has, its electrical layout (common cathode or anode) and which controller the device is using. It is important to set this entry correctly, otherwise you may get a scrambled, upside down or even uncomplete digits and/or missing icons.  
 Here are the values, they are all 0 indexed.
 
-1. Display type - this value tells the driver about the layout and icons of the display. At this time the driver supports 5 display layouts:  
-   1. A display like on the Sunvell T95U.
-   1. A display like on the Sunvell T95m. It is similar to T95U, but the icons are positioned differently, and the digits are "upside down".
-   1. A display like on the X92 S912 Android TV Box. This display usually has a common anode electrical layout.
-   1. A display like on the A95X R2 (or the Abox A1 Max).
-   1. A display like on the T95K or Tap 1, these displays do not have icons.
+1. Display type - this value tells the driver about the layout and icons of the display. At this time the driver supports the following display layouts:
+
+   ID | Display type
+   -- | ----------------------------------------------
+   0  | A display like on the Sunvell T95U
+   1  | A display like on the Sunvell T95m. It is similar to T95U, but the icons are positioned differently, and the digits are "upside down".
+   2  | A display like on the X92 S912 Android TV Box. This display usually has a common anode electrical layout.
+   3  | A display like on the A95X R2 (or the Abox A1 Max).
+   4  | A display like on the T95K, these displays do not have icons.
+   5  | A display like on the Tap1, Tap Pro, Mini One RK3229, MXV+, or Dune HD Sky 4K Plus.
+   6  | A display like on the M9 Pro, U2C X+, U5X+S, or Magicsee C400 Plus.
+   7  | A display like on the G9SX/Enybox X1.
+   8  | A display like on the Freesat GTC.
 1. Reserved - must be 0.
 1. Flags:
-   1. Bit 0 - When this bit is '1', the driver will address the display as a common anode unit. When this bit is configured incorrectly, the display will usually show garbage.
-   1. Bits [1 - 5] - Reserved, should be 0.
-   1. Bit [6] - When this bit is '1', the driver will use a slower frequency to communicate with the display controller.
-   1. Bit [7] - Reserved, should be 0.
+
+   Bits | Description
+   ---- | --------------------------------------------
+   0    | When this bit is '1', the driver will address the display as a common anode unit. When this bit is configured incorrectly, the display will usually show garbage.
+   1..5 | Reserved, should be 0.
+   6    | When this bit is '1', the driver will use a slower frequency to communicate with the display controller.
+   7    | Reserved, should be 0.
+   
 1. Controller:
-   1. FD628 and compatible controllers.
-   1. FD620.
-   1. TM1618.
+
+   ID | Description
+   -- | --------------------------------
+   0  | FD628 and compatible controllers
+   1  | FD620
+   2  | TM1618
+   3  | FD650
+   4  | 7S MAX
+   5  | IL3829
+   6  | PCD8544
+   7  | SH1106
+   8  | SSD1306
+   9  | HD44780 and compatible controllers
 
 Here are some possible configurations:
 
