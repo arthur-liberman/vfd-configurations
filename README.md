@@ -81,7 +81,7 @@ Here are the values, they are all 0 indexed.
    1..5 | Reserved, should be 0.
    6    | When this bit is '1', the driver will use a slower frequency to communicate with the display controller.
    7    | Reserved, should be 0.
-   
+
 1. Controller:
 
    ID | Description
