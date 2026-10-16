@@ -1,10 +1,34 @@
-# vfd.config
+# vfd-configurations
 
-This repository contains configuration files for devices that have a 7 segment display (most often they're Android TV Boxes), driven by FD628 or a similar controller.  
-This configuration file is device specific, as each device has different GPIO pins connected to the display controller. The displays themselves vary as well, there are displays with different visual and electrical layouts, which require different configuration options to be set.  
-It alleviates the need for multiple device specific DTBs (Device Tree Binaries), and is much easier to modify and deploy on the device.  
-**The configuration file should be formatted as an Environment File.**
-***
+Per-device configuration files for front-panel LED and LCD displays, used by the [linux_openvfd](https://github.com/arthur-liberman/linux_openvfd) driver.
+
+Each file matches one set-top box or board. It records the GPIO pins wired to the display controller, the digit and icon order, and the display and controller type. A file is easier to edit and deploy than a device-specific DTB.
+
+The files are shell environment files. Whatever loads the driver reads the variables and passes them to the `openvfd` module as parameters.
+
+## Using a configuration
+
+This repository contains only the configuration files. The kernel module and the `OpenVFDService` program that updates the display are in [linux_openvfd](https://github.com/arthur-liberman/linux_openvfd).
+
+**CoreELEC.** Save the matching file as `/storage/.config/vfd.conf`, install the OpenVFD Service add-on, and reboot. CoreELEC sources that file and loads the module with its values. See the [CoreELEC VFD guide](https://wiki.coreelec.org/coreelec:genvfd).
+
+**Debian and other Linux systems.** Build and install `openvfd` and `OpenVFDService` from linux_openvfd. Copy the matching file to a stable path such as `/etc/vfd.conf`, source it, and pass the variables as module parameters:
+
+```sh
+. /etc/vfd.conf
+modprobe openvfd \
+  vfd_gpio_clk=$vfd_gpio_clk \
+  vfd_gpio_dat=$vfd_gpio_dat \
+  vfd_gpio_stb=$vfd_gpio_stb \
+  vfd_chars=$vfd_chars \
+  vfd_dot_bits=$vfd_dot_bits \
+  vfd_display_type=$vfd_display_type
+```
+
+Then start `OpenVFDService`. `/storage/.config/vfd.conf` is the CoreELEC path and does not exist on Debian. Build instructions and service options are in the linux_openvfd README.
+
+The rest of this document describes the entries in a configuration file.
+
 The configuration file consits of several entries:
 
 ## GPIO
